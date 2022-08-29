@@ -14,7 +14,7 @@ const Countries = (props) => {
 
   console.log(oneCountry);
   return (
-    <div>
+    <div className="countries">
       <CountryForm />
       <CountryCard
         flag="here is flag"
