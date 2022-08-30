@@ -4,25 +4,37 @@ import CountryCard from "./CountryCard";
 import CountryForm from "./CountryForm";
 import { fetchAll } from "../actions";
 import { connect } from "react-redux";
+import { render } from "@testing-library/react";
 
 const Countries = (props) => {
   useEffect(() => {
     props.fetchAll();
   }, []);
 
-  const oneCountry = props.countries ? props.countries[0] : null;
+  if (props.countries.length === 0) {
+    return;
+  }
 
-  console.log(oneCountry);
+  const renderCards = () => {
+    return props.countries.map((country) => {
+      return (
+        <div key={Math.random()} className="container">
+          <CountryCard
+            flag={country.flags}
+            name={country.name}
+            population={country.population}
+            region={country.region}
+            capital={country.capital}
+          />
+        </div>
+      );
+    });
+  };
+
   return (
     <div className="countries">
       <CountryForm />
-      <CountryCard
-        flag="here is flag"
-        name="Germany"
-        population="1000000"
-        region="Europe"
-        capital="Berlin"
-      />
+      {renderCards()}
     </div>
   );
 };

@@ -1,5 +1,15 @@
 * {
   box-sizing: border-box;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
+    color: var(--text);
+  }
 }
 
 body {
@@ -13,10 +23,9 @@ body {
   font-family: "Nunito Sans", sans-serif;
   --text: hsl(200, 15%, 8%);
   --input: hsl(0, 0%, 52%);
-  --bckgrnd: hsl(0, 0%, 98%);
+  --bckgrnd: hsl(0, 0%, 90%);
   --elements: hsl(0, 0%, 100%);
 
-  color: var(--text);
   background-color: var(--bckgrnd);
 }
 .dark-mode {
@@ -25,9 +34,11 @@ body {
   --bckgrnd: hsl(207, 26%, 17%);
 }
 
+.top-container {
+  background-color: var(--bckgrnd);
+}
 .container {
   padding-inline: 1rem;
-  background-color: var(--bckgrnd);
 }
 
 .header {
@@ -35,17 +46,19 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: var(--elements);
-  p {
-    color: var(--text);
+  .h-text {
     margin: 0;
     font-weight: 800;
   }
-  button {
+  .mode-toggle {
     border: none;
     background-color: var(--elements);
-    span {
-      color: var(--text);
+    .button-text {
       font-weight: 300;
+      margin: 0;
+    }
+    .icon {
+      padding: 0;
     }
   }
 }
@@ -55,7 +68,6 @@ body {
 }
 
 .inputs {
-  background-color: var(--bckgrnd);
   padding-block: 2rem;
   i {
     position: absolute;
@@ -78,8 +90,8 @@ body {
 }
 
 .dropdown {
-  padding-bottom: 1rem;
-  background-color: var(--bckgrnd);
+  padding-block: 1rem;
+
   position: relative;
 
   .dropdown-content {
@@ -89,10 +101,9 @@ body {
     border-radius: 7px;
     padding-block: 1rem;
     padding-inline: 0;
-    // display: none;
 
     position: absolute;
-    top: 1.8rem;
+    top: 2.7rem;
     .dropdown-item {
       padding-left: 20px;
       padding-block: 0.2rem;
@@ -103,13 +114,13 @@ body {
       }
     }
   }
+
   .visible {
     display: block;
   }
   .invisible {
     display: none;
   }
-
   .dropdown-control {
     position: relative;
     width: 60vw;
@@ -132,5 +143,31 @@ body {
       right: 0;
       padding: 10px 20px;
     }
+  }
+}
+
+.card-container {
+  padding-inline: 2rem;
+  img {
+    width: 100%;
+    border-radius: 7px 7px 0 0;
+  }
+  .content-container {
+    background-color: var(--elements);
+    padding-inline: 1.5rem;
+    padding-bottom: 3rem;
+    border-radius: 0 0 7px 7px;
+    margin-bottom: 3rem;
+
+    .capital-name {
+      padding-block: 0.8rem;
+    }
+    .card-details {
+      padding-block: 0.25rem;
+    }
+  }
+  h2,
+  p {
+    margin: 0;
   }
 }

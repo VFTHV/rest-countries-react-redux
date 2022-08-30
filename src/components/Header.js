@@ -1,12 +1,12 @@
 import React from "react";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <section className="header container">
-      <p>Where in the world?</p>
-      <button>
+      <p className="h-text">Where in the world?</p>
+      <button className="mode-toggle" onClick={props.setMode}>
         <i className="moon icon"></i>
-        <span>Dark Mode</span>
+        <span className="button-text">Dark Mode</span>
       </button>
     </section>
   );

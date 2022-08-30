@@ -3,14 +3,14 @@ import { useState, useEffect } from "react";
 
 const CountryForm = () => {
   const [visibility, setVisibility] = useState("invisible");
+  const [filter, setFilter] = useState("Filter by Region");
   const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
   useEffect(() => {}, [visibility]);
 
-  const filter = (event, region) => {
-    event.preventDefault();
+  const filterCountries = (region) => {
     setVisibility("invisible");
-    console.log("sorting by region: " + region);
+    setFilter(region);
   };
 
   return (
@@ -26,12 +26,6 @@ const CountryForm = () => {
 
       <div className="dropdown container">
         <div className="dropdown-control">
-          {/* <input
-            type="text"
-            className="dropdown-input"
-            placeholder="Filter by Region"
-            aria-label="Text input with dropdown button"
-            /> */}
           <button
             className="dropdown-input"
             onClick={(e) => {
@@ -41,7 +35,7 @@ const CountryForm = () => {
                 : setVisibility("invisible");
             }}
           >
-            Filter by Region
+            {filter}
           </button>
           <i className="angle down icon"></i>
         </div>
@@ -51,7 +45,7 @@ const CountryForm = () => {
               <li
                 key={region}
                 className="dropdown-item"
-                onClick={(e) => filter(e, region)}
+                onClick={() => filterCountries(region)}
               >
                 {region}
               </li>

@@ -3,6 +3,17 @@
           box-sizing: border-box;
 }
 
+* h1,
+* h2,
+* h3,
+* h4,
+* h5,
+* h6,
+* p,
+* span {
+  color: var(--text);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -11,9 +22,8 @@ body {
   font-family: "Nunito Sans", sans-serif;
   --text: hsl(200, 15%, 8%);
   --input: hsl(0, 0%, 52%);
-  --bckgrnd: hsl(0, 0%, 98%);
+  --bckgrnd: hsl(0, 0%, 90%);
   --elements: hsl(0, 0%, 100%);
-  color: var(--text);
   background-color: var(--bckgrnd);
 }
 
@@ -27,9 +37,12 @@ body ul {
   --bckgrnd: hsl(207, 26%, 17%);
 }
 
+.top-container {
+  background-color: var(--bckgrnd);
+}
+
 .container {
   padding-inline: 1rem;
-  background-color: var(--bckgrnd);
 }
 
 .header {
@@ -43,20 +56,23 @@ body ul {
   background-color: var(--elements);
 }
 
-.header p {
-  color: var(--text);
+.header .h-text {
   margin: 0;
   font-weight: 800;
 }
 
-.header button {
+.header .mode-toggle {
   border: none;
   background-color: var(--elements);
 }
 
-.header button span {
-  color: var(--text);
+.header .mode-toggle .button-text {
   font-weight: 300;
+  margin: 0;
+}
+
+.header .mode-toggle .icon {
+  padding: 0;
 }
 
 .countries {
@@ -64,7 +80,6 @@ body ul {
 }
 
 .inputs {
-  background-color: var(--bckgrnd);
   padding-block: 2rem;
 }
 
@@ -103,8 +118,7 @@ body ul {
 }
 
 .dropdown {
-  padding-bottom: 1rem;
-  background-color: var(--bckgrnd);
+  padding-block: 1rem;
   position: relative;
 }
 
@@ -116,7 +130,7 @@ body ul {
   padding-block: 1rem;
   padding-inline: 0;
   position: absolute;
-  top: 1.8rem;
+  top: 2.7rem;
 }
 
 .dropdown .dropdown-content .dropdown-item {
@@ -173,5 +187,35 @@ body ul {
   position: absolute;
   right: 0;
   padding: 10px 20px;
+}
+
+.card-container {
+  padding-inline: 2rem;
+}
+
+.card-container img {
+  width: 100%;
+  border-radius: 7px 7px 0 0;
+}
+
+.card-container .content-container {
+  background-color: var(--elements);
+  padding-inline: 1.5rem;
+  padding-bottom: 3rem;
+  border-radius: 0 0 7px 7px;
+  margin-bottom: 3rem;
+}
+
+.card-container .content-container .capital-name {
+  padding-block: 0.8rem;
+}
+
+.card-container .content-container .card-details {
+  padding-block: 0.25rem;
+}
+
+.card-container h2,
+.card-container p {
+  margin: 0;
 }
 /*# sourceMappingURL=styles.css.map */
