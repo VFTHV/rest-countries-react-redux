@@ -1,28 +1,42 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { assignCountry, assignRegion } from "../actions";
 
-const CountryForm = () => {
+const CountryForm = (props) => {
   const [visibility, setVisibility] = useState("invisible");
   const [filter, setFilter] = useState("Filter by Region");
-  const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+  const [term, setTerm] = useState("");
+  const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania", "All"];
 
   useEffect(() => {}, [visibility]);
 
-  const filterCountries = (region) => {
+  const assignFilter = (region) => {
     setVisibility("invisible");
     setFilter(region);
+    if (region === "All") region = null;
+    props.assignRegion(region);
   };
 
   return (
-    <form>
-      <div className="inputs container">
-        <i className="search icon"></i>
-        <input
-          type="text"
-          className="country-input"
-          placeholder="Search for a country..."
-        />
-      </div>
+    <>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          props.assignCountry(term);
+        }}
+      >
+        <div className="inputs container">
+          <i className="search icon"></i>
+          <input
+            onChange={(e) => setTerm(e.target.value)}
+            value={term}
+            type="text"
+            className="country-input"
+            placeholder="Search for a country..."
+          />
+        </div>
+      </form>
 
       <div className="dropdown container">
         <div className="dropdown-control">
@@ -45,7 +59,7 @@ const CountryForm = () => {
               <li
                 key={region}
                 className="dropdown-item"
-                onClick={() => filterCountries(region)}
+                onClick={() => assignFilter(region)}
               >
                 {region}
               </li>
@@ -53,8 +67,16 @@ const CountryForm = () => {
           })}
         </ul>
       </div>
-    </form>
+    </>
   );
 };
 
-export default CountryForm;
+const mapStateToProps = (state) => {
+  return {
+    filter: state.filter,
+  };
+};
+
+export default connect(mapStateToProps, { assignCountry, assignRegion })(
+  CountryForm
+);

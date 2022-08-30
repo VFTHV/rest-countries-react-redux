@@ -2,7 +2,7 @@ import React from "react";
 
 const CountryCard = (props) => {
   return (
-    <div className="container card-container">
+    <div className="card-container">
       <div className="image-container">
         <img src={props.flag.png} />
       </div>
