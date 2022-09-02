@@ -22,7 +22,7 @@ const App = () => {
       <BrowserRouter>
         <Header setMode={setMode} />
         <Routes>
-          <Route path="/details" element={<CountryDetails />} />
+          <Route path="/details/:cca3Code" element={<CountryDetails />} />
           <Route path="/" element={<Countries />} />
         </Routes>
       </BrowserRouter>

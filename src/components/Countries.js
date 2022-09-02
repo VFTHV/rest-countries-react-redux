@@ -10,26 +10,35 @@ const Countries = (props) => {
     props.fetchAll();
   }, []);
 
-  if (props.countries.length === 0) {
-    return;
-  }
-
-  console.log(props);
-
   const filterCountries = (region, country) => {
+    let countriesArray = [];
     if (region && !country) {
-      return props.countries.filter(
+      countriesArray = props.countries.filter(
         (eachCountry) => eachCountry.region === region
       );
     } else if (!region && country) {
-      return props.countries.filter(
+      countriesArray = props.countries.filter(
         (eachCountry) =>
           eachCountry.name.common.toLowerCase() === country.toLowerCase()
       );
+      if (countriesArray.length === 0) {
+        return [
+          {
+            name: {
+              common:
+                "OOOPS!!! Are you fucking stupid? Cannot write correctly?",
+            },
+            flags: { png: null },
+            population: "N/A",
+            region: "N/A",
+            capital: "N/A",
+          },
+        ];
+      }
     } else {
-      // (!props.filter && !country)
-      return props.countries;
+      countriesArray = props.countries;
     }
+    return countriesArray;
   };
 
   const renderCards = () => {
@@ -43,6 +52,7 @@ const Countries = (props) => {
               population={country.population}
               region={country.region}
               capital={country.capital}
+              cca3Code={country.cca3}
             />
           </div>
         );
@@ -53,7 +63,11 @@ const Countries = (props) => {
   return (
     <div className="countries">
       <CountryForm />
-      {renderCards()}
+      {props.countries.length === 0 ? (
+        <h2 className="loading">Loading...</h2>
+      ) : (
+        renderCards()
+      )}
     </div>
   );
 };

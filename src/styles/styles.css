@@ -39,6 +39,7 @@ body ul {
 
 .top-container {
   background-color: var(--bckgrnd);
+  padding-bottom: 23rem;
 }
 
 .container {
@@ -77,6 +78,11 @@ body ul {
 
 .countries {
   font-size: 14px;
+}
+
+.loading {
+  color: var(--text);
+  text-align: center;
 }
 
 .inputs {
@@ -190,7 +196,9 @@ body ul {
 }
 
 .card-container {
-  padding-inline: 2rem;
+  margin-inline: 2rem;
+  background-color: var(--elements);
+  border-radius: 0 0 7px 7px;
 }
 
 .card-container img {
@@ -199,10 +207,8 @@ body ul {
 }
 
 .card-container .content-container {
-  background-color: var(--elements);
   padding-inline: 1.5rem;
   padding-bottom: 3rem;
-  border-radius: 0 0 7px 7px;
   margin-bottom: 3rem;
 }
 

@@ -1,8 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CountryCard = (props) => {
+  let navigate = useNavigate();
+
+  const countryCode = props.cca3Code.toLowerCase();
+
   return (
-    <div className="card-container">
+    <div
+      className="card-container"
+      onClick={() => navigate(`/details/` + countryCode)}
+    >
       <div className="image-container">
         <img src={props.flag.png} />
       </div>
