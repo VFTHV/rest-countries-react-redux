@@ -7,11 +7,11 @@ import { useParams } from "react-router-dom";
 import BackButton from "./BackButton";
 
 const CountryDetails = (props) => {
+  let params = useParams();
+  console.log(params);
   useEffect(() => {
     props.fetchCountry(params.cca3Code);
-  }, []);
-  let params = useParams();
-
+  }, [params.cca3Code]);
   const renderNativeNames = () => {
     const nameKeys = Object.keys(props.details.name.nativeName);
     const nativeNames = nameKeys.map((key) => {

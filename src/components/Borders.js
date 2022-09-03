@@ -20,7 +20,6 @@ const Borders = (props) => {
           key={country.name.common}
           className="button border-button element"
         >
-          {console.log(country)}
           {country.name.common}
         </button>
       );

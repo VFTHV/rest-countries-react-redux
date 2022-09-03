@@ -7,7 +7,9 @@ const CountryCard = (props) => {
   return (
     <div
       className="card-container"
-      onClick={() => navigate(`/details/` + props.cca3Code.toLowerCase())}
+      onClick={() => {
+        navigate(`/details/` + props.cca3Code.toLowerCase());
+      }}
     >
       <div className="image-container">
         <img src={props.flag.png} />
