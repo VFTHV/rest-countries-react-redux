@@ -16,7 +16,6 @@ const Borders = (props) => {
         <button
           onClick={() => {
             navigate(`/details/` + country.cca3.toLowerCase());
-            window.location.reload();
           }}
           key={country.name.common}
           className="button border-button element"
