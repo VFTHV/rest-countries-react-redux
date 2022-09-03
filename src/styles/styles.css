@@ -29,6 +29,8 @@ body {
 
 body ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .dark-mode {
@@ -44,6 +46,11 @@ body ul {
 
 .container {
   padding-inline: 1rem;
+}
+
+.element {
+  background-color: var(--elements);
+  color: var(--text);
 }
 
 .header {
@@ -99,12 +106,10 @@ body ul {
 }
 
 .country-input {
-  color: var(--text);
   border-radius: 7px;
   border: none;
   width: 100%;
   padding: 10px 0 10px 60px;
-  background-color: var(--elements);
 }
 
 .country-input::-webkit-input-placeholder {
@@ -129,14 +134,12 @@ body ul {
 }
 
 .dropdown .dropdown-content {
-  background-color: var(--elements);
-  color: var(--text);
   width: 60vw;
   border-radius: 7px;
   padding-block: 1rem;
   padding-inline: 0;
   position: absolute;
-  top: 2.7rem;
+  top: 3.5rem;
 }
 
 .dropdown .dropdown-content .dropdown-item {
@@ -168,8 +171,6 @@ body ul {
   border: none;
   cursor: pointer;
   padding: 10px 40px 10px 20px;
-  background-color: var(--elements);
-  color: var(--text);
   text-align: start;
 }
 
@@ -223,5 +224,64 @@ body ul {
 .card-container h2,
 .card-container p {
   margin: 0;
+}
+
+.border-header {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.button-container {
+  margin-block: 2rem;
+}
+
+.button-container .back {
+  position: relative;
+  padding: 0.4rem 1rem;
+}
+
+.button-container .back .icon {
+  position: absolute;
+  left: 0;
+  padding: 0;
+  margin-left: 0.5rem;
+}
+
+.button-container .back span {
+  margin-left: 1.3rem;
+}
+
+.button {
+  border: none;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img {
+  width: 100%;
+}
+
+.content-section {
+  color: var(--text);
+  margin-block: 2rem;
+}
+
+.content-section .content-line {
+  font-weight: 600;
+  margin-block: 0.5rem;
+}
+
+.content-section .content-line span {
+  font-weight: 300;
+}
+
+.list-item ~ .list-item::before {
+  content: ", ";
+}
+
+.border-button {
+  padding: 0.4rem 1rem;
+  margin: 0 0.5rem 0.5rem 0;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -18,6 +18,8 @@ body {
   box-sizing: border-box;
   ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
   }
 
   font-family: "Nunito Sans", sans-serif;
@@ -40,6 +42,11 @@ body {
 }
 .container {
   padding-inline: 1rem;
+}
+
+.element {
+  background-color: var(--elements);
+  color: var(--text);
 }
 
 .header {
@@ -84,12 +91,12 @@ body {
   color: var(--text);
 }
 .country-input {
-  color: var(--text);
+  // color: var(--text);
+  // background-color: var(--elements);
   border-radius: 7px;
   border: none;
   width: 100%;
   padding: 10px 0 10px 60px;
-  background-color: var(--elements);
   &::placeholder {
     color: var(--text);
   }
@@ -101,15 +108,15 @@ body {
   position: relative;
 
   .dropdown-content {
-    background-color: var(--elements);
-    color: var(--text);
+    // background-color: var(--elements);
+    // color: var(--text);
     width: 60vw;
     border-radius: 7px;
     padding-block: 1rem;
     padding-inline: 0;
 
     position: absolute;
-    top: 2.7rem;
+    top: 3.5rem;
     .dropdown-item {
       padding-left: 20px;
       padding-block: 0.2rem;
@@ -136,8 +143,8 @@ body {
       border: none;
       cursor: pointer;
       padding: 10px 40px 10px 20px;
-      background-color: var(--elements);
-      color: var(--text);
+      // background-color: var(--elements);
+      // color: var(--text);
       text-align: start;
 
       &::placeholder {
@@ -176,4 +183,59 @@ body {
   p {
     margin: 0;
   }
+}
+
+.border-header {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.button-container {
+  margin-block: 2rem;
+  .back {
+    position: relative;
+    padding: 0.4rem 1rem;
+
+    .icon {
+      position: absolute;
+      left: 0;
+      padding: 0;
+      margin-left: 0.5rem;
+    }
+    span {
+      margin-left: 1.3rem;
+    }
+  }
+}
+
+.button {
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+  img {
+    width: 100%;
+  }
+}
+
+.content-section {
+  color: var(--text);
+  margin-block: 2rem;
+  .content-line {
+    font-weight: 600;
+    margin-block: 0.5rem;
+    span {
+      font-weight: 300;
+    }
+  }
+}
+.list-item ~ .list-item::before {
+  content: ", ";
+}
+
+.border-button {
+  padding: 0.4rem 1rem;
+  margin: 0 0.5rem 0.5rem 0;
 }

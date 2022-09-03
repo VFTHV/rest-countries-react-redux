@@ -25,8 +25,7 @@ const Countries = (props) => {
         return [
           {
             name: {
-              common:
-                "OOOPS!!! Are you fucking stupid? Cannot write correctly?",
+              common: "OOOPS!!! Nothing to show! Please check your spelling!",
             },
             flags: { png: null },
             population: "N/A",

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchCountry } from "../actions";
 import { useParams } from "react-router-dom";
+import BackButton from "./BackButton";
 
 const CountryDetails = (props) => {
   useEffect(() => {
@@ -15,11 +16,9 @@ const CountryDetails = (props) => {
     const nameKeys = Object.keys(props.details.name.nativeName);
     const nativeNames = nameKeys.map((key) => {
       return (
-        <p key={key}>
-          {`${key.toUpperCase()}: ${
-            props.details.name.nativeName[key].common
-          } `}
-        </p>
+        <span className="list-item" key={key}>
+          {`${key.toUpperCase()}: ${props.details.name.nativeName[key].common}`}
+        </span>
       );
     });
     return nativeNames;
@@ -29,9 +28,9 @@ const CountryDetails = (props) => {
     const nameKeys = Object.keys(object);
     const currencies = nameKeys.map((key) => {
       return (
-        <p key={key}>
+        <span className="list-item" key={key}>
           {objectKeyString ? object[key][objectKeyString] : object[key]}
-        </p>
+        </span>
       );
     });
     return currencies;
@@ -39,55 +38,57 @@ const CountryDetails = (props) => {
 
   const renderDetails = () => {
     return (
-      <div className="container details">
+      <div className="container">
         <div className="button-container">
-          <button className="details-cta">back</button>
+          <BackButton text="Back" />
         </div>
-        <div className="image-container">
-          <img src={props.details.flags.png} />
-        </div>
-        <div className="content-section">
-          <h2 className="">{props.details.name.common}</h2>
-        </div>
-        <div className="content-section">
-          <div className="content-line subsection">
-            Native Names: <div>{renderNativeNames()}</div>
+        <div className="details">
+          <div className="image-container">
+            <img src={props.details.flags.png} />
           </div>
-          <p className="content-line">
-            Population: <span>{props.details.population}</span>
-          </p>
-          <p className="content-line">
-            Region: <span>{props.details.region}</span>
-          </p>
-          <p className="content-line">
-            Subregion: <span>{props.details.subregion}</span>
-          </p>
-          <p className="content-line">
-            Capital: <span>{props.details.capital}</span>
-          </p>
+          <div className="content-section">
+            <h2 className="">{props.details.name.common}</h2>
+          </div>
+          <div className="content">
+            <ul className="content-section">
+              <li className="content-line">
+                Native Names: {renderNativeNames()}
+              </li>
+              <li className="content-line">
+                Population: <span>{props.details.population}</span>
+              </li>
+              <li className="content-line">
+                Region: <span>{props.details.region}</span>
+              </li>
+              <li className="content-line">
+                Sub Region: <span>{props.details.subregion}</span>
+              </li>
+              <li className="content-line">
+                Capital: <span>{props.details.capital}</span>
+              </li>
+            </ul>
+            <ul className="content-section">
+              <li className="content-line">
+                Top Level Domain: <span>{renderValues(props.details.tld)}</span>
+              </li>
+              <li className="content-line">
+                Currencies:{" "}
+                <span>{renderValues(props.details.currencies, "name")}</span>
+              </li>
+              <li className="content-line">
+                Languages: <span>{renderValues(props.details.languages)}</span>
+              </li>
+            </ul>
+          </div>
+          {!props.details.borders ? (
+            "Loading..."
+          ) : (
+            <Borders borderCodes={props.details.borders} />
+          )}
         </div>
-        <div className="content-section">
-          <div className="content-line subsection">
-            Top Level Domain: <div>{renderValues(props.details.tld)}</div>
-          </div>
-          <div className="content-line subsection">
-            Currencies:{" "}
-            <div>{renderValues(props.details.currencies, "name")}</div>
-          </div>
-          <div className="content-line subsection">
-            Languages: <div>{renderValues(props.details.languages)}</div>
-          </div>
-        </div>
-        {!props.details.borders ? (
-          "Loading..."
-        ) : (
-          <Borders borderCodes={props.details.borders} />
-        )}
       </div>
     );
   };
-
-  // console.log(props.details.borders);
 
   return (
     <div>

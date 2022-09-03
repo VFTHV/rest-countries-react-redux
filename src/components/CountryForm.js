@@ -32,7 +32,7 @@ const CountryForm = (props) => {
             onChange={(e) => setTerm(e.target.value)}
             value={term}
             type="text"
-            className="country-input"
+            className="country-input element"
             placeholder="Search for a country..."
           />
         </div>
@@ -41,7 +41,7 @@ const CountryForm = (props) => {
       <div className="dropdown container">
         <div className="dropdown-control">
           <button
-            className="dropdown-input"
+            className="dropdown-input element"
             onClick={(e) => {
               e.preventDefault();
               visibility === "invisible"
@@ -53,7 +53,7 @@ const CountryForm = (props) => {
           </button>
           <i className="angle down icon"></i>
         </div>
-        <ul className={`dropdown-content ${visibility}`}>
+        <ul className={`dropdown-content element ${visibility}`}>
           {regions.map((region) => {
             return (
               <li
