@@ -7,7 +7,7 @@ import { fetchBorders } from "../actions";
 const Borders = (props) => {
   useEffect(() => {
     props.fetchBorders(props.borderCodes);
-  }, []);
+  }, [props.borderCodes]);
   let navigate = useNavigate();
 
   const renderButtons = () => {
