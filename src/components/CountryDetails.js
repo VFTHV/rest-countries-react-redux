@@ -8,10 +8,11 @@ import BackButton from "./BackButton";
 
 const CountryDetails = (props) => {
   let params = useParams();
-  console.log(params);
   useEffect(() => {
     props.fetchCountry(params.cca3Code);
+    window.scrollTo(0, 0);
   }, [params.cca3Code]);
+
   const renderNativeNames = () => {
     const nameKeys = Object.keys(props.details.name.nativeName);
     const nativeNames = nameKeys.map((key) => {
@@ -46,45 +47,52 @@ const CountryDetails = (props) => {
           <div className="image-container">
             <img src={props.details.flags.png} />
           </div>
-          <div className="content-section">
-            <h2 className="">{props.details.name.common}</h2>
+          <div>
+            <div className="content-section">
+              <h2 className="">{props.details.name.common}</h2>
+            </div>
+            <div className="content">
+              <ul className="content-section">
+                <li className="content-line">
+                  Native Names: {renderNativeNames()}
+                </li>
+                <li className="content-line">
+                  Population:{" "}
+                  <span>
+                    {props.details.population.toLocaleString("en-US")}
+                  </span>
+                </li>
+                <li className="content-line">
+                  Region: <span>{props.details.region}</span>
+                </li>
+                <li className="content-line">
+                  Sub Region: <span>{props.details.subregion}</span>
+                </li>
+                <li className="content-line">
+                  Capital: <span>{props.details.capital}</span>
+                </li>
+              </ul>
+              <ul className="content-section">
+                <li className="content-line">
+                  Top Level Domain:{" "}
+                  <span>{renderValues(props.details.tld)}</span>
+                </li>
+                <li className="content-line">
+                  Currencies:{" "}
+                  <span>{renderValues(props.details.currencies, "name")}</span>
+                </li>
+                <li className="content-line">
+                  Languages:{" "}
+                  <span>{renderValues(props.details.languages)}</span>
+                </li>
+              </ul>
+            </div>
+            {!props.details.borders ? (
+              <div className="loading">No bordering countries</div>
+            ) : (
+              <Borders borderCodes={props.details.borders} />
+            )}
           </div>
-          <div className="content">
-            <ul className="content-section">
-              <li className="content-line">
-                Native Names: {renderNativeNames()}
-              </li>
-              <li className="content-line">
-                Population: <span>{props.details.population}</span>
-              </li>
-              <li className="content-line">
-                Region: <span>{props.details.region}</span>
-              </li>
-              <li className="content-line">
-                Sub Region: <span>{props.details.subregion}</span>
-              </li>
-              <li className="content-line">
-                Capital: <span>{props.details.capital}</span>
-              </li>
-            </ul>
-            <ul className="content-section">
-              <li className="content-line">
-                Top Level Domain: <span>{renderValues(props.details.tld)}</span>
-              </li>
-              <li className="content-line">
-                Currencies:{" "}
-                <span>{renderValues(props.details.currencies, "name")}</span>
-              </li>
-              <li className="content-line">
-                Languages: <span>{renderValues(props.details.languages)}</span>
-              </li>
-            </ul>
-          </div>
-          {!props.details.borders ? (
-            "Loading..."
-          ) : (
-            <Borders borderCodes={props.details.borders} />
-          )}
         </div>
       </div>
     );

@@ -10,17 +10,19 @@ const Countries = (props) => {
     props.fetchAll();
   }, []);
 
-  const filterCountries = (region, country) => {
+  const filterCountries = (region, countrySearchTerm) => {
     let countriesArray = [];
-    if (region && !country) {
+    if (region && !countrySearchTerm) {
       countriesArray = props.countries.filter(
         (eachCountry) => eachCountry.region === region
       );
-    } else if (!region && country) {
-      countriesArray = props.countries.filter(
-        (eachCountry) =>
-          eachCountry.name.common.toLowerCase() === country.toLowerCase()
-      );
+    } else if (!region && countrySearchTerm) {
+      countriesArray = props.countries.filter((eachCountry) => {
+        const country = eachCountry.name.common.toLowerCase();
+        const searchTerm = countrySearchTerm.toLowerCase().trim();
+
+        return country.includes(searchTerm);
+      });
       if (countriesArray.length === 0) {
         return [
           {
@@ -44,7 +46,7 @@ const Countries = (props) => {
     return filterCountries(props.filter.region, props.filter.country).map(
       (country) => {
         return (
-          <div key={Math.random()} className="container">
+          <div key={Math.random()} style={{ paddingBottom: "3rem" }}>
             <CountryCard
               flag={country.flags}
               name={country.name}
@@ -60,12 +62,12 @@ const Countries = (props) => {
   };
 
   return (
-    <div className="countries">
+    <div className="countries container">
       <CountryForm />
       {props.countries.length === 0 ? (
         <h2 className="loading">Loading...</h2>
       ) : (
-        renderCards()
+        <div className="cards">{renderCards()}</div>
       )}
     </div>
   );

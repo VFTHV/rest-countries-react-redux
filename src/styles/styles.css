@@ -39,9 +39,13 @@ body ul {
   --bckgrnd: hsl(207, 26%, 17%);
 }
 
+#root {
+  height: 100%;
+}
+
 .top-container {
   background-color: var(--bckgrnd);
-  padding-bottom: 23rem;
+  min-height: 100vh;
 }
 
 .container {
@@ -90,6 +94,7 @@ body ul {
 .loading {
   color: var(--text);
   text-align: center;
+  font-weight: 600;
 }
 
 .inputs {
@@ -199,22 +204,22 @@ body ul {
 .card-container {
   margin-inline: 2rem;
   background-color: var(--elements);
-  border-radius: 0 0 7px 7px;
+  border-radius: 7px;
+  max-width: 630px;
 }
 
 .card-container img {
-  width: 100%;
   border-radius: 7px 7px 0 0;
 }
 
 .card-container .content-container {
   padding-inline: 1.5rem;
   padding-bottom: 3rem;
-  margin-bottom: 3rem;
 }
 
 .card-container .content-container .capital-name {
   padding-block: 0.8rem;
+  font-size: 16px;
 }
 
 .card-container .content-container .card-details {
@@ -258,8 +263,13 @@ body ul {
           box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
 }
 
+.image-container {
+  aspect-ratio: 1.67 / 1;
+}
+
 .image-container img {
   width: 100%;
+  height: 100%;
 }
 
 .content-section {
@@ -283,5 +293,66 @@ body ul {
 .border-button {
   padding: 0.4rem 1rem;
   margin: 0 0.5rem 0.5rem 0;
+}
+
+@media only screen and (min-width: 650px) {
+  .cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-column-gap: 2rem;
+            column-gap: 2rem;
+  }
+  .card-container {
+    max-width: 320px;
+    margin-inline: 0;
+  }
+  .form-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-block: 2rem;
+  }
+  .form-container .inputs,
+  .form-container .dropdown {
+    padding-block: 0;
+    margin-block: 0;
+  }
+  .form-container .inputs {
+    width: 40vw;
+  }
+  .form-container .dropdown-control {
+    width: 30vw;
+  }
+  .details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .details .image-container {
+    margin-right: 4rem;
+    width: 120vw;
+  }
+  .details .image-container img {
+    width: 100%;
+    aspect-ratio: 1.67 / 1;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .form-container .inputs {
+    width: 30vw;
+  }
+  .form-container .dropdown-control {
+    width: 15vw;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

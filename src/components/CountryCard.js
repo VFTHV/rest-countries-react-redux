@@ -17,7 +17,7 @@ const CountryCard = (props) => {
       <div className="content-container">
         <h2 className="capital-name">{props.name.common}</h2>
         <p className="card-details">
-          Population: <span>{props.population}</span>
+          Population: <span>{props.population.toLocaleString("en-US")}</span>
         </p>
         <p className="card-details">
           Region: <span>{props.region}</span>

@@ -35,10 +35,13 @@ body {
   --elements: hsl(209, 23%, 22%);
   --bckgrnd: hsl(207, 26%, 17%);
 }
+#root {
+  height: 100%;
+}
 
 .top-container {
   background-color: var(--bckgrnd);
-  padding-bottom: 23rem;
+  min-height: 100vh;
 }
 .container {
   padding-inline: 1rem;
@@ -78,6 +81,7 @@ body {
 .loading {
   color: var(--text);
   text-align: center;
+  font-weight: 600;
 }
 
 .inputs {
@@ -162,18 +166,19 @@ body {
 .card-container {
   margin-inline: 2rem;
   background-color: var(--elements);
-  border-radius: 0 0 7px 7px;
+  border-radius: 7px;
+  max-width: 630px;
+
   img {
-    width: 100%;
     border-radius: 7px 7px 0 0;
   }
   .content-container {
     padding-inline: 1.5rem;
     padding-bottom: 3rem;
-    margin-bottom: 3rem;
 
     .capital-name {
       padding-block: 0.8rem;
+      font-size: 16px;
     }
     .card-details {
       padding-block: 0.25rem;
@@ -215,8 +220,11 @@ body {
 }
 
 .image-container {
+  aspect-ratio: 1.67 / 1;
+
   img {
     width: 100%;
+    height: 100%;
   }
 }
 
@@ -238,4 +246,60 @@ body {
 .border-button {
   padding: 0.4rem 1rem;
   margin: 0 0.5rem 0.5rem 0;
+}
+
+@media only screen and (min-width: 650px) {
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 2rem;
+  }
+  .card-container {
+    max-width: 320px;
+    margin-inline: 0;
+  }
+  .form-container {
+    display: flex;
+    justify-content: space-between;
+    margin-block: 2rem;
+
+    .inputs,
+    .dropdown {
+      padding-block: 0;
+      margin-block: 0;
+    }
+    .inputs {
+      width: 40vw;
+    }
+
+    .dropdown-control {
+      width: 30vw;
+    }
+  }
+
+  .details {
+    display: flex;
+
+    .image-container {
+      margin-right: 4rem;
+      width: 120vw;
+      img {
+        width: 100%;
+        aspect-ratio: 1.67 / 1;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .form-container {
+    .inputs {
+      width: 30vw;
+    }
+
+    .dropdown-control {
+      width: 15vw;
+    }
+  }
 }

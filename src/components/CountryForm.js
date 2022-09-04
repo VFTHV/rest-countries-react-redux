@@ -19,14 +19,14 @@ const CountryForm = (props) => {
   };
 
   return (
-    <>
+    <div className="form-container">
       <form
         onSubmit={(e) => {
           e.preventDefault();
           props.assignCountry(term);
         }}
       >
-        <div className="inputs container">
+        <div className="inputs">
           <i className="search icon"></i>
           <input
             onChange={(e) => setTerm(e.target.value)}
@@ -38,7 +38,7 @@ const CountryForm = (props) => {
         </div>
       </form>
 
-      <div className="dropdown container">
+      <div className="dropdown">
         <div className="dropdown-control">
           <button
             className="dropdown-input element"
@@ -67,7 +67,7 @@ const CountryForm = (props) => {
           })}
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 
