@@ -64,6 +64,7 @@ body {
   .mode-toggle {
     border: none;
     background-color: var(--elements);
+    cursor: pointer;
     .button-text {
       font-weight: 300;
       margin: 0;
@@ -95,8 +96,6 @@ body {
   color: var(--text);
 }
 .country-input {
-  // color: var(--text);
-  // background-color: var(--elements);
   border-radius: 7px;
   border: none;
   width: 100%;
@@ -112,8 +111,6 @@ body {
   position: relative;
 
   .dropdown-content {
-    // background-color: var(--elements);
-    // color: var(--text);
     width: 60vw;
     border-radius: 7px;
     padding-block: 1rem;
@@ -147,8 +144,6 @@ body {
       border: none;
       cursor: pointer;
       padding: 10px 40px 10px 20px;
-      // background-color: var(--elements);
-      // color: var(--text);
       text-align: start;
 
       &::placeholder {
@@ -168,6 +163,7 @@ body {
   background-color: var(--elements);
   border-radius: 7px;
   max-width: 630px;
+  cursor: pointer;
 
   img {
     border-radius: 7px 7px 0 0;
@@ -217,6 +213,7 @@ body {
   border: none;
   border-radius: 2px;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .image-container {
@@ -226,6 +223,10 @@ body {
     width: 100%;
     height: 100%;
   }
+}
+
+.country-details {
+  font-size: 16px;
 }
 
 .content-section {
@@ -238,6 +239,9 @@ body {
       font-weight: 300;
     }
   }
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 .list-item ~ .list-item::before {
   content: ", ";
@@ -248,6 +252,11 @@ body {
   margin: 0 0.5rem 0.5rem 0;
 }
 
+.error {
+  color: red;
+  text-align: center;
+}
+
 @media only screen and (min-width: 650px) {
   .cards {
     display: flex;
@@ -256,7 +265,7 @@ body {
     column-gap: 2rem;
   }
   .card-container {
-    max-width: 320px;
+    max-width: 290px;
     margin-inline: 0;
   }
   .form-container {
@@ -278,21 +287,19 @@ body {
     }
   }
 
-  .details {
-    display: flex;
-
-    .image-container {
-      margin-right: 4rem;
-      width: 120vw;
-      img {
-        width: 100%;
-        aspect-ratio: 1.67 / 1;
-      }
+  .all-content {
+    .content {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 2rem;
     }
   }
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 768px) {
+  .container {
+    padding-inline: 3rem;
+  }
   .form-container {
     .inputs {
       width: 30vw;
@@ -300,6 +307,45 @@ body {
 
     .dropdown-control {
       width: 15vw;
+    }
+  }
+
+  .country-details {
+    .details {
+      .image-container {
+        float: left;
+        width: 30vw;
+      }
+
+      .all-content {
+        float: right;
+        width: 55vw;
+      }
+    }
+
+    .borders {
+      display: flex;
+      column-gap: 1rem;
+      margin-top: 1rem;
+      .border-header {
+        margin-block: auto;
+      }
+    }
+  }
+
+  // aspect-ratio: 1.67 / 1;
+}
+
+@media only screen and (min-width: 1440px) {
+  .country-details {
+    .details {
+      .image-container {
+        width: 50vw;
+      }
+
+      .all-content {
+        width: 35vw;
+      }
     }
   }
 }

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./styles/styles.css";
 import Countries from "./components/Countries";
 import CountryDetails from "./components/CountryDetails";
+import ErrorPage from "./components/ErrorPage";
 import Header from "./components/Header";
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <Routes>
           <Route path="/details/:cca3Code" element={<CountryDetails />} />
           <Route path="/" element={<Countries />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </div>

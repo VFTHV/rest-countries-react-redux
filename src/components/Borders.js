@@ -27,7 +27,7 @@ const Borders = (props) => {
   };
 
   return (
-    <div className="content-section">
+    <div className="content-section borders">
       <h3 className="border-header">Border Countries:</h3>
       <div className="borders-cta">{renderButtons()}</div>
     </div>

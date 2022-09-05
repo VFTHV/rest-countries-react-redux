@@ -39,15 +39,15 @@ const CountryDetails = (props) => {
 
   const renderDetails = () => {
     return (
-      <div className="container">
+      <div className="container country-details">
         <div className="button-container">
           <BackButton text="Back" />
         </div>
         <div className="details">
           <div className="image-container">
-            <img src={props.details.flags.png} />
+            <img src={props.details.flags.svg} />
           </div>
-          <div>
+          <div className="all-content">
             <div className="content-section">
               <h2 className="">{props.details.name.common}</h2>
             </div>
@@ -105,7 +105,6 @@ const CountryDetails = (props) => {
       ) : (
         <h2 className="loading">Loading...</h2>
       )}
-      ;
     </div>
   );
 };

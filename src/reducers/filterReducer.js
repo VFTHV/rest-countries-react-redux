@@ -3,7 +3,7 @@ export default (state = {}, action) => {
     case "REGION_FILTER":
       return { ...state, ["region"]: action.payload, ["country"]: null };
     case "COUNTRY_FILTER":
-      return { ...state, ["country"]: action.payload, ["region"]: null };
+      return { ...state, ["region"]: null, ["country"]: action.payload };
     default:
       return state;
   }

@@ -9,6 +9,7 @@ export const fetchCountry = (code) => async (dispatch) => {
   const response = await restCountries.get(
     `/alpha?codes=${code.toLowerCase()}`
   );
+  console.log(response);
   dispatch({ type: "FETCH_COUNTRY", payload: response.data });
 };
 
