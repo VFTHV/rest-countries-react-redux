@@ -7,7 +7,7 @@ import ErrorPage from "./components/ErrorPage";
 import Header from "./components/Header";
 
 const App = () => {
-  const [mode, toggleMode] = useState("dark-mode");
+  const [mode, toggleMode] = useState("");
 
   const setMode = () => {
     if (mode === "dark-mode") {
