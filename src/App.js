@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
 import "./styles/styles.css";
 import Countries from "./components/Countries";
 import CountryDetails from "./components/CountryDetails";
@@ -20,14 +20,14 @@ const App = () => {
 
   return (
     <div className={`top-container ${mode}`}>
-      <BrowserRouter>
+      <HashRouter>
         <Header setMode={setMode} />
         <Routes>
           <Route path="/details/:cca3Code" element={<CountryDetails />} />
           <Route path="/" element={<Countries />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 };
