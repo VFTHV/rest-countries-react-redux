@@ -71,6 +71,7 @@ body ul {
 .header .h-text {
   margin: 0;
   font-weight: 800;
+  font-size: 14px;
 }
 
 .header .mode-toggle {

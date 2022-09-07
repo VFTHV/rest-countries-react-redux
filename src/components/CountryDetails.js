@@ -45,7 +45,10 @@ const CountryDetails = (props) => {
         </div>
         <div className="details">
           <div className="image-container">
-            <img src={props.details.flags.svg} />
+            <img
+              src={props.details.flags.svg}
+              alt={`image of the flag of ${props.details.name.common}`}
+            />
           </div>
           <div className="all-content">
             <div className="content-section">

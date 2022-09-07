@@ -12,7 +12,10 @@ const CountryCard = (props) => {
       }}
     >
       <div className="image-container">
-        <img src={props.flag.png} />
+        <img
+          src={props.flag.png}
+          alt={`image of the flag of ${props.name.common}`}
+        />
       </div>
       <div className="content-container">
         <h2 className="capital-name">{props.name.common}</h2>
