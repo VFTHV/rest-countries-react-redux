@@ -290,7 +290,7 @@ body {
   .all-content {
     .content {
       display: flex;
-      justify-content: space-between;
+      justify-content: start;
       column-gap: 2rem;
     }
   }
@@ -306,7 +306,7 @@ body {
     }
 
     .dropdown-control {
-      width: 15vw;
+      width: 20vw;
     }
   }
 
@@ -345,6 +345,9 @@ body {
 
       .all-content {
         width: 35vw;
+        .content {
+          justify-content: space-between;
+        }
       }
     }
   }

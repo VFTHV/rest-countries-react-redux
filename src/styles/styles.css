@@ -352,9 +352,9 @@ body ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
     -webkit-column-gap: 2rem;
             column-gap: 2rem;
   }
@@ -368,7 +368,7 @@ body ul {
     width: 30vw;
   }
   .form-container .dropdown-control {
-    width: 15vw;
+    width: 20vw;
   }
   .country-details .details .image-container {
     float: left;
@@ -397,6 +397,11 @@ body ul {
   }
   .country-details .details .all-content {
     width: 35vw;
+  }
+  .country-details .details .all-content .content {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 /*# sourceMappingURL=styles.css.map */
