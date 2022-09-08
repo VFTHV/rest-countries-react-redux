@@ -283,8 +283,12 @@ body {
       width: 40vw;
     }
 
-    .dropdown-control {
+    .dropdown-control,
+    .dropdown-content {
       width: 30vw;
+    }
+    .dropdown-content {
+      top: 2.5rem;
     }
   }
 
@@ -306,7 +310,8 @@ body {
       width: 30vw;
     }
 
-    .dropdown-control {
+    .dropdown-control,
+    .dropdown-content {
       width: 20vw;
     }
   }

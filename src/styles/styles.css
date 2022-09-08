@@ -346,8 +346,12 @@ body ul {
   .form-container .inputs {
     width: 40vw;
   }
-  .form-container .dropdown-control {
+  .form-container .dropdown-control,
+  .form-container .dropdown-content {
     width: 30vw;
+  }
+  .form-container .dropdown-content {
+    top: 2.5rem;
   }
   .all-content .content {
     display: -webkit-box;
@@ -368,7 +372,8 @@ body ul {
   .form-container .inputs {
     width: 30vw;
   }
-  .form-container .dropdown-control {
+  .form-container .dropdown-control,
+  .form-container .dropdown-content {
     width: 20vw;
   }
   .country-details .details .image-container {
