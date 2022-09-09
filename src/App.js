@@ -16,7 +16,7 @@ const App = () => {
       setMode({ mode: "dark-mode", modeName: "Dark Mode" });
     }
   };
-  console.log(mode);
+
   useEffect(() => {}, [mode]);
 
   return (

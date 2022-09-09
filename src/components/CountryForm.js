@@ -7,9 +7,22 @@ const CountryForm = (props) => {
   const [visibility, setVisibility] = useState("invisible");
   const [filter, setFilter] = useState("Filter by Region");
   const [term, setTerm] = useState("");
+  const [debouncedTerm, setDebouncedTerm] = useState("");
   const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania", "All"];
 
-  useEffect(() => {}, [visibility]);
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedTerm(term);
+    }, 1000);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [term]);
+
+  useEffect(() => {
+    props.assignCountry(debouncedTerm);
+  }, [debouncedTerm]);
 
   const assignFilter = (region) => {
     setVisibility("invisible");
@@ -20,23 +33,16 @@ const CountryForm = (props) => {
 
   return (
     <div className="form-container">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          props.assignCountry(term);
-        }}
-      >
-        <div className="inputs">
-          <i className="search icon"></i>
-          <input
-            onChange={(e) => setTerm(e.target.value)}
-            value={term}
-            type="text"
-            className="country-input element"
-            placeholder="Search for a country..."
-          />
-        </div>
-      </form>
+      <div className="inputs">
+        <i className="search icon"></i>
+        <input
+          onChange={(e) => setTerm(e.target.value)}
+          value={term}
+          type="text"
+          className="country-input element"
+          placeholder="Search for a country..."
+        />
+      </div>
 
       <div className="dropdown">
         <div className="dropdown-control">
