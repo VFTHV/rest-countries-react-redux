@@ -1,5 +1,6 @@
 import React from "react";
 import Borders from "./Borders";
+import Map from "./Map";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchCountry } from "../actions";
@@ -12,6 +13,8 @@ const CountryDetails = (props) => {
     props.fetchCountry(params.cca3Code);
     window.scrollTo(0, 0);
   }, [params.cca3Code]);
+
+  console.log(props.details);
 
   const renderNativeNames = () => {
     const nameKeys = Object.keys(props.details.name.nativeName);
@@ -38,6 +41,19 @@ const CountryDetails = (props) => {
   };
 
   const renderDetails = () => {
+    const {
+      flags,
+      name,
+      population,
+      region,
+      subregion,
+      capital,
+      tld,
+      currencies,
+      languages,
+      borders,
+      latlng,
+    } = props.details;
     return (
       <div className="container country-details">
         <div className="button-container">
@@ -45,14 +61,11 @@ const CountryDetails = (props) => {
         </div>
         <div className="details">
           <div className="image-container">
-            <img
-              src={props.details.flags.svg}
-              alt={`image of the flag of ${props.details.name.common}`}
-            />
+            <img src={flags.svg} alt={`image of the flag of ${name.common}`} />
           </div>
           <div className="all-content">
             <div className="content-section">
-              <h2 className="">{props.details.name.common}</h2>
+              <h2 className="">{name.common}</h2>
             </div>
             <div className="content">
               <ul className="content-section">
@@ -60,43 +73,38 @@ const CountryDetails = (props) => {
                   Native Names: {renderNativeNames()}
                 </li>
                 <li className="content-line">
-                  Population:{" "}
-                  <span>
-                    {props.details.population.toLocaleString("en-US")}
-                  </span>
+                  Population: <span>{population.toLocaleString("en-US")}</span>
                 </li>
                 <li className="content-line">
-                  Region: <span>{props.details.region}</span>
+                  Region: <span>{region}</span>
                 </li>
                 <li className="content-line">
-                  Sub Region: <span>{props.details.subregion}</span>
+                  Sub Region: <span>{subregion}</span>
                 </li>
                 <li className="content-line">
-                  Capital: <span>{props.details.capital}</span>
+                  Capital: <span>{capital}</span>
                 </li>
               </ul>
               <ul className="content-section">
                 <li className="content-line">
-                  Top Level Domain:{" "}
-                  <span>{renderValues(props.details.tld)}</span>
+                  Top Level Domain: <span>{renderValues(tld)}</span>
                 </li>
                 <li className="content-line">
-                  Currencies:{" "}
-                  <span>{renderValues(props.details.currencies, "name")}</span>
+                  Currencies: <span>{renderValues(currencies, "name")}</span>
                 </li>
                 <li className="content-line">
-                  Languages:{" "}
-                  <span>{renderValues(props.details.languages)}</span>
+                  Languages: <span>{renderValues(languages)}</span>
                 </li>
               </ul>
             </div>
-            {!props.details.borders ? (
+            {!borders ? (
               <div className="loading">No bordering countries</div>
             ) : (
-              <Borders borderCodes={props.details.borders} />
+              <Borders borderCodes={borders} />
             )}
           </div>
         </div>
+        <Map coords={latlng} />
       </div>
     );
   };

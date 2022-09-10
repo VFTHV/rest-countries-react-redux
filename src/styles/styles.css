@@ -280,6 +280,14 @@ body ul {
   font-size: 16px;
 }
 
+.country-details .map {
+  height: 50vh;
+  width: 100%;
+  -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid black;
+}
+
 .content-section {
   color: var(--text);
   margin-block: 2rem;
@@ -390,7 +398,7 @@ body ul {
     display: flex;
     -webkit-column-gap: 1rem;
             column-gap: 1rem;
-    margin-top: 1rem;
+    margin-block: 1rem;
   }
   .country-details .borders .border-header {
     margin-block: auto;

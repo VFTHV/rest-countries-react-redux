@@ -228,6 +228,13 @@ body {
 
 .country-details {
   font-size: 16px;
+
+  .map {
+    height: 50vh;
+    width: 100%;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
+  }
 }
 
 .content-section {
@@ -332,14 +339,12 @@ body {
     .borders {
       display: flex;
       column-gap: 1rem;
-      margin-top: 1rem;
+      margin-block: 1rem;
       .border-header {
         margin-block: auto;
       }
     }
   }
-
-  // aspect-ratio: 1.67 / 1;
 }
 
 @media only screen and (min-width: 1440px) {

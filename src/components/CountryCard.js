@@ -4,29 +4,28 @@ import { useNavigate } from "react-router-dom";
 const CountryCard = (props) => {
   let navigate = useNavigate();
 
+  const { cca3Code, flag, name, population, region, capital } = props;
+
   return (
     <div
       className="card-container"
       onClick={() => {
-        navigate(`/details/` + props.cca3Code.toLowerCase());
+        navigate(`/details/` + cca3Code.toLowerCase());
       }}
     >
       <div className="image-container">
-        <img
-          src={props.flag.png}
-          alt={`image of the flag of ${props.name.common}`}
-        />
+        <img src={flag.png} alt={`image of the flag of ${name.common}`} />
       </div>
       <div className="content-container">
-        <h2 className="capital-name">{props.name.common}</h2>
+        <h2 className="capital-name">{name.common}</h2>
         <p className="card-details">
-          Population: <span>{props.population.toLocaleString("en-US")}</span>
+          Population: <span>{population.toLocaleString("en-US")}</span>
         </p>
         <p className="card-details">
-          Region: <span>{props.region}</span>
+          Region: <span>{region}</span>
         </p>
         <p className="card-details">
-          Capital: <span>{props.capital}</span>
+          Capital: <span>{capital}</span>
         </p>
       </div>
     </div>

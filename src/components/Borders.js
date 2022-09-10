@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchBorders } from "../actions";
 
-const Borders = (props) => {
+const Borders = ({ borderCodes, borders, fetchBorders }) => {
   useEffect(() => {
-    props.fetchBorders(props.borderCodes);
-  }, [props.borderCodes]);
+    fetchBorders(borderCodes);
+  }, [borderCodes]);
   let navigate = useNavigate();
 
   const renderButtons = () => {
-    return props.borders.map((country) => {
+    return borders.map((country) => {
       return (
         <button
           onClick={() => {
