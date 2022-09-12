@@ -230,7 +230,7 @@ body {
   font-size: 16px;
 
   .map {
-    height: 50vh;
+    height: 50vw;
     width: 100%;
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
     border: 1px solid black;
@@ -302,7 +302,7 @@ body {
   .all-content {
     .content {
       display: flex;
-      justify-content: start;
+      justify-content: flex-start;
       column-gap: 2rem;
     }
   }

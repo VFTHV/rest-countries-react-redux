@@ -14,8 +14,6 @@ const CountryDetails = (props) => {
     window.scrollTo(0, 0);
   }, [params.cca3Code]);
 
-  console.log(props.details);
-
   const renderNativeNames = () => {
     const nameKeys = Object.keys(props.details.name.nativeName);
     const nativeNames = nameKeys.map((key) => {

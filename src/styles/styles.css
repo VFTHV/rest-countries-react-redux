@@ -281,7 +281,7 @@ body ul {
 }
 
 .country-details .map {
-  height: 50vh;
+  height: 50vw;
   width: 100%;
   -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
@@ -367,7 +367,7 @@ body ul {
     display: flex;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
-            justify-content: start;
+            justify-content: flex-start;
     -webkit-column-gap: 2rem;
             column-gap: 2rem;
   }
