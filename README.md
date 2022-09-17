@@ -1,6 +1,6 @@
-# Frontend Mentor - REST Countries API with color theme switcher solution
+# REST Countries API with color theme switcher solution
 
-This is a solution to the [REST Countries API with color theme switcher](https://rest-countries-react-redux.netlify.app/)
+This is a path to the [REST Countries API with color theme switcher](https://rest-countries-react-redux.netlify.app/)
 
 ## Table of contents
 
