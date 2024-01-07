@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import "./styles/styles.css";
 import Countries from "./components/Countries";
@@ -16,8 +16,6 @@ const App = () => {
       setMode({ mode: "dark-mode", modeName: "Dark Mode" });
     }
   };
-
-  useEffect(() => {}, [mode]);
 
   return (
     <div className={`top-container ${mode.mode}`}>
